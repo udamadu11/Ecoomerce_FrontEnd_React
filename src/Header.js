@@ -9,6 +9,7 @@ return(
                 <Link className="nav-link active" to="/home">Home</Link>
                 <Link className="nav-link active" to="/features">Features</Link>
                 <Link className="nav-link active" to="/pricing">Pricing</Link>
+                <Link className="nav-link active" to="/addProducts">Add Products</Link>
             </Nav>
             <Nav>
                 <Link className="nav-link active" to="/login">Login</Link>
