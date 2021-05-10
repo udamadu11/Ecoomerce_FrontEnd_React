@@ -9,22 +9,23 @@ function AddProducts(){
     async function upload(){
         let item = {name,price,description,file_path};
         console.log(item);
-        const fd = new FormData()
+        const fd = new FormData();
         fd.append('name',name);
         fd.append('price',price);
         fd.append('description',description);
         fd.append('file_path',file_path);
         let result = await fetch('http://localhost:8000/api/addProducts',{
             method:"POST",
-            body: fd
+            body: fd,
         });
-
+        console.log('result',result);
 
     }
     return(
         <div className="container">
             <div className="card col-sm-8 card-c offset-sm-2">
                 <div className="card-body">
+                    <form encType="multipart/form-data">
                         <div className="row g-3">
                             <div className="col col-a">
                                 <input type="text" className="form-control" name="name" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Product Name"/>
@@ -42,14 +43,15 @@ function AddProducts(){
                         </div>
                         <div className="row g-3">
                             <div className="col col-a">
-                                <input type="file" className="form-control" name="file_path" value={file_path} onChange={(e)=>setFilePath(e.target.value)}  placeholder="Password"/>
+                                <input type="file" className="form-control" name="file_path" defaultValue={file_path} onChange={(e)=>setFilePath(e.target.files[0])}  placeholder="Password"/>
                             </div>
                         </div>
                         <div className="row g-3">
                             <div className="col col-a">
-                                <Button className="btn  btn-success" onClick={upload}>Login</Button>
+                                <Button className="btn  btn-success" onClick={upload}>Add Products</Button>
                             </div>
                         </div>
+                    </form>
                 </div>
             </div>
         </div>
