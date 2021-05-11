@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter,Route} from 'react-router-dom';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 
 import Header from './Header';
 import Login from './Login';
@@ -12,18 +12,24 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Route path="/home">
-            <ProductList />
-        </Route>
-        <Route path="/login" >
-          <Login />
-        </Route>
-        <Route path="/register" >
-          <Register />
-        </Route>
-        <Route path="/addProducts" >
-          <AddProducts />
-        </Route>
+        <Switch>
+          <Route path="/home">
+              <ProductList />
+          </Route>
+          <Route path="/login" >
+            <Login />
+          </Route>
+          <Route path="/register" >
+            <Register />
+          </Route>
+          <Route path="/addProducts" >
+            <AddProducts />
+          </Route>
+          
+          <Route path="/">
+              <ProductList />
+          </Route>
+          </Switch>
       </BrowserRouter> 
     </div>
   );
