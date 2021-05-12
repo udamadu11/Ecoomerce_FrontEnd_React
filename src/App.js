@@ -6,6 +6,7 @@ import Login from './Login';
 import Register from './Register';
 import AddProducts from './AddProduct';
 import ProductList from './ProductList';
+import UpdateProduct from './UpdateProduct';
 
 function App() {
   return (
@@ -25,7 +26,9 @@ function App() {
           <Route path="/addProducts" >
             <AddProducts />
           </Route>
-          
+          <Route path="/update/:id" >
+            <UpdateProduct />
+          </Route>
           <Route path="/">
               <ProductList />
           </Route>

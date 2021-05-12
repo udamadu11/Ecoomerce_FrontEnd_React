@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import {Card,ListGroup,ListGroupItem,Button} from 'react-bootstrap';
-
+import {Link} from 'react-router-dom';
 function ProductList(){
     const [data,setData] = useState([]);
     useEffect( () => {
@@ -32,6 +32,7 @@ function ProductList(){
                         <ListGroupItem>{item.name}</ListGroupItem>
                         <ListGroupItem>{item.description}</ListGroupItem>
                         <ListGroupItem><Button onClick={()=>deleteFunc(item.id)} className="btn btn-danger">Delete</Button></ListGroupItem>
+                        <ListGroupItem><Link to={"/update/"+item.id}><Button className="btn btn-sucess">Update</Button></Link></ListGroupItem>
                     </ListGroup>
                 </Card>
                     )
